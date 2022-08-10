@@ -1,17 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { Provider } from "react-redux";
 
-import App from "./App";
-import { Store } from "./Redux/store";
+var promise = new Promise((res,rej)=>{
+  
+   (res)=>{ setTimeout(()=>{
+    res("OK")
+    },1000)}
 
-const rootElement = document.getElementById("root");
-const root = createRoot(rootElement);
+    (rej)=>{
+      rej("Not Ok")
+    }
 
-root.render(
-  <StrictMode>
-    <Provider store={Store}>
-    <App />
-    </Provider>
-  </StrictMode>
-);
+},1000)
+
+
+promise.then((val)=>console.log(val))
